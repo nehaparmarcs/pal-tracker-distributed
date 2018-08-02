@@ -6,6 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 import java.util.TimeZone;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 @EnableEurekaClient
 @SpringBootApplication
@@ -13,8 +15,11 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
     "io.pivotal.pal.tracker.accounts",
     "io.pivotal.pal.tracker.restsupport",
     "io.pivotal.pal.tracker.projects",
-    "io.pivotal.pal.tracker.users"
+    "io.pivotal.pal.tracker.users",
+        "io.pivotal.pal.tracker.registration"
 })
+@EnableWebSecurity
+@EnableResourceServer
 public class App {
     public static void main(String[] args) {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
